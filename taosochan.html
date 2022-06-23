@@ -27,13 +27,8 @@
            	    
            	    document.getElementById('so_nhap_bn').innerHTML = 'Bạn đã nhập vào ' + dem_so_nhap + ' số.';
            
-} 
-      
-
-
-		function kiem_tra_so(){
-
-		 //in ra các số chẵn, lẻ
+        
+          //in ra các số chẵn, lẻ
 
 		 let so = parseInt(document.getElementById('so_nhap').value);
 		      if((so % 2) == 0){
@@ -42,20 +37,18 @@
 		      	else if((so % 2) == 1){
 		      	 document.getElementById('ket_qua').innerHTML = 'Đây là số lẻ';
 	      }
-		  } 
+	
 
 		  //in ra các số từ 1 tới số đó
-        function kiem_tra_so(){
-          let so = parseInt(document.getElementById('so_nhap').value);
-	      let chuoi = 0;
-	      if(so > 0){ 
-	      for(let i = 1; i <= so; i++){
-	      	chuoi = chuoi + i + ', '} ;
+        
+              let so = parseInt(document.getElementById('so_nhap').value);
+	          let chuoi = 0;
+	          if(so > 0){ 
+	          for(let i = 1; i <= so; i++){
+	      	   chuoi = chuoi + i + ', '} ;
 	      
           }  
-            
-          
-          document.getElementById('day_so').innerHTML = chuoi;
+            document.getElementById('day_so').innerHTML = chuoi;
 
        
 		 } 
