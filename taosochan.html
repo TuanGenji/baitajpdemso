@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<form align = center> 
+		<p>Toán Học</p>
+		<input type="number" id="so_nhap">
+		<button type="button" onclick="kiem_tra_so()">Kiểm Tra</button>
+	</form>
+	<div id="ket_qua"></div><br>
+	<div id="day_so"></div>
+	<div id="so_nhap_bn"></div>
+	<script type="text/javascript">
+
+
+		let dem_so_nhap = 0;
+
+
+		  //in ra đã nhập bao nhiêu số
+           function kiem_tra_so(){
+
+           	dem_so_nhap += 1;
+           	    
+           	    document.getElementById('so_nhap_bn').innerHTML = 'Bạn đã nhập vào ' + dem_so_nhap + ' số.';
+           
+} 
+      
+
+
+		function kiem_tra_so(){
+
+		 //in ra các số chẵn, lẻ
+
+		 let so = parseInt(document.getElementById('so_nhap').value);
+		      if((so % 2) == 0){
+		      	 document.getElementById('ket_qua').innerHTML = 'Đây là số chẵn';
+		      }
+		      	else if((so % 2) == 1){
+		      	 document.getElementById('ket_qua').innerHTML = 'Đây là số lẻ';
+	      }
+		  } 
+
+		  //in ra các số từ 1 tới số đó
+        function kiem_tra_so(){
+          let so = parseInt(document.getElementById('so_nhap').value);
+	      let chuoi = 0;
+	      if(so > 0){ 
+	      for(let i = 1; i <= so; i++){
+	      	chuoi = chuoi + i + ', '} ;
+	      
+          }  
+            
+          
+          document.getElementById('day_so').innerHTML = chuoi;
+
+       
+		 } 
+
+         
+           
+           
+	</script>
+
+
+
+</body>
+</html>
