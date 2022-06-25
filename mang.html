@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<form>
+		<input type ="number" id="input_number" >
+		<button type = "button" onclick="nhap_vao()">Nhập</button>
+		<button type = "button" onclick="in_ra()">Kiểm Tra</button>
+	</form>
+
+    <div id="in_ra_so_da_nhap"></div>
+    <div id="in_ra_so_chan"></div>
+    <div id="in_ra_so_le"></div>
+    <div id="so_lon_nhat"></div>
+    <div id="tong_so_mang"></div>
+    <div id="so_nguyen_to_trong_day"></div>
+
+	<script type="text/javascript">
+
+      let mang = [];
+      
+      // Nhập vào các số cho mảng 
+      function nhap_vao(){
+      	    let so = parseInt(document.getElementById('input_number').value);
+            mang.push(so);
+      
+            let chuoi = '';
+            for(i = 0; i < mang.length; i++){
+            	chuoi = chuoi + mang[i] + ' ';
+            }
+
+            document.getElementById('in_ra_so_da_nhap').innerHTML ='Các số đã nhập vào là: ' + chuoi;
+      }
+
+      // Kiểm tra các số nhập vào thoả mãn các điều kiện 
+       function in_ra(){ 
+       	    let in_so_chan = '';
+       	    let in_so_le = '';
+       	    for(i = 0; i < mang.length; i++){
+       	    	if(mang[i] % 2 == 0){
+                   in_so_chan = in_so_chan + mang[i] + ' ';
+             
+       	    	}
+       	    	else {
+                   in_so_le = in_so_le + mang[i] + ' ';
+
+       	    	}
+       	    	
+       	    	   document.getElementById('in_ra_so_chan').innerHTML = 'Các số chẵn là: ' + in_so_chan;
+       	    	   document.getElementById('in_ra_so_le').innerHTML = 'Các số lẻ là: ' + in_so_le;
+            }
+
+       // Tìm số lớn nhất trong mảng 
+
+            let so_lon = mang[0];
+            for(i = 0; i < mang.length; i++){ 
+            	if(so_lon < mang[i]){ 
+                so_lon = mang[i];
+
+            	}
+            document.getElementById('so_lon_nhat').innerHTML = 'Số lớn nhất là: ' + so_lon;
+
+            }
+
+       // Tính tổng phần tử trong mảng
+
+           let tong_mang;
+            for(let i = 0; i < mang.length; i++){
+            tong_mang = mang.reduce(function (total, i) {
+             return total +i;
+            }, 0);
+           } 
+
+
+          document.getElementById('tong_so_mang').innerHTML = 'Tổng số trong mảng: ' + tong_mang;
+
+       // In ra các số Nguyên Tố
+
+          let so_nguyen_to='';
+          for(let i = 0; i < mang.length; i++){
+          var flag = true;
+
+ // Nếu n bé hơn 2 tức là không phải số nguyên tố
+          if (mang[i] < 2){
+          flag = false;
+       }
+          else{
+     // lặp từ 2 tới n-1
+          for (a = 2; a < mang[i] -1; a++){
+         if (mang[i] % a == 0){
+             flag = false;
+             break;
+         }
+          }
+        }
+          if(flag == true){
+           so_nguyen_to += mang[i] + ' ';
+           } else{
+         so_nguyen_to += ' ';
+        }
+
+        }
+        document.getElementById('so_nguyen_to_trong_day').innerHTML = so_nguyen_to;
+}
+
+
+   </script>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+    <form>
+    	Tên:
+    	<input type="text" id="name_person">
+        <span id="error_name"></span>
+    	<br>
+    	Ngày sinh:
+    	<input type="date" id="date_born">
+        <span id="error_date"></span>
+    	<br>
+    	Giới tính:
+    	<input type="radio" name="gender">Nam
+    	<input type="radio" name="gender">Nữ
+        <span id="error_gender"></span>
+    	<br>
+    	Số điện thoại:
+    	<input type="number" id="number_phone">
+        <span id="error_number"></span>
+    	<br>
+    	Email:
+    	<input type="email" id="email_person"><br>
+    	Lớp:
+    	<select>
+    		<option>Lập Trình</option>
+    		<option>Hack</option>
+    		<option>Sever</option>
+    	</select> <br>
+        Mật khẩu:
+        <input type="password" id="pass_person">
+        <span id="error_pass"></span>
+        <br>
+        <button type="submit" onclick="return check_list()">Đăng Ký</button>
+    </form>
+
+
+    <script type="text/javascript">
+    	function check_list(){
+
+// Check tên không được để trống
+          let ten = document.getElementById('name_person').value;
+          let check_error = false;
+          if(ten.length === 0){
+
+          	document.getElementById('error_name').innerHTML = 'Tên không được để trống';
+           check_error = true;
+          }
+          else
+          {
+          	document.getElementById('error_name').innerHTML ='';
+          }
+
+// Check ngày sinh không đwowjc để trống
+          let date = document.getElementById('name_person').value;
+          if(date.length === 0){
+
+          	document.getElementById('error_date').innerHTML = 'Ngày sinh không được để trống';
+           check_error = true;
+          }
+          else
+          {
+          	document.getElementById('error_date').innerHTML ='';
+          }
+
+// Check giới tính đã được tick hay chưa
+        let array_gender = document.getElementsByName('gender');
+        let check_gender = false;
+        for(i = 0; i < array_gender.length; i++){
+           if( array_gender[i].checked){
+              check_gender = true;
+           }
+
+        }
+          if(check_gender == false){
+             document.getElementById('error_gender').innerHTML = 'Giới tính chưa được chọn';
+                 check_error = true;
+          }
+          else
+          {
+          	document.getElementById('error_gender').innerHTML ='';
+          }
+
+
+
+// Check số điện thoại đã điền đúng hay chưa
+
+          let number = document.getElementById('number_phone').value;
+          if(number.length < 8){
+
+          	document.getElementById('error_number').innerHTML = 'Số điện thoại nhập thiếu';
+           check_error = true;
+          }
+          else
+          {
+          	document.getElementById('error_number').innerHTML ='';
+          }
+
+
+
+
+// Check mật khẩu người dùng nhập vào
+
+         let mat_khau = document.getElementById('pass_person').value;
+
+         if(mat_khau.length === 0){
+
+          	document.getElementById('error_pass').innerHTML = 'Mật khẩu không được để trống';
+           check_error = true;
+          }
+          else if (mat_khau.length < 8 ){
+            document.getElementById('error_pass').innerHTML = 'Mật khẩu không nhỏ hơn 8 ký tự';
+          }
+          else {
+            document.getElementById('error_pass').innerHTML = '';
+          }
+
+
+
+          if(check_error == true){
+              return false;
+           }
+
+    	}
+
+    </script>
+
+
+</body>
+</html>
